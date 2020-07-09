@@ -93,4 +93,17 @@ if [[ -f "${ZSH_EXA_VERSION_FILE}" ]]; then
     _zsh_exa_load
 fi
 
+
+########################################################
+##### ALIASES
+########################################################
+alias ll='exa -lbF --git'
+alias la='exa -lbhHigmuSa --time-style=long-iso --git --color-scale'
+alias lx='exa -lbhHigmuSa@ --time-style=long-iso --git --color-scale'
+alias llt='exa -l --git --tree'
+alias lt='exa --tree --level=2'
+## Sorts
+alias llm='exa -lbGF --git --sort=modified'
+alias lld='exa -lbhHFGmuSa --group-directories-first'
+
 unset -f _zsh_exa_install _zsh_exa_load
