@@ -1,5 +1,7 @@
 # zsh-exa
 
+![GitHub](https://img.shields.io/github/license/ptavares/zsh-exa)
+
 zsh plugin for installing and loading [exa](https://github.com/ogham/exa.git)
 
 ## Table of content
