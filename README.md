@@ -1,16 +1,35 @@
-# zsh-exa
-
 ![GitHub](https://img.shields.io/github/license/ptavares/zsh-exa)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+![Release](https://img.shields.io/badge/Release_version-0.0.0-blue)
+
+# zsh-exa
 
 zsh plugin for installing and loading [exa](https://github.com/ogham/exa.git)
 
 ## Table of content
 
+_This documentation section is generated automatically_
+
+<!--TOC-->
+
 - [zsh-exa](#zsh-exa)
+  - [Table of content](#table-of-content)
+  - [Supported Operating system](#supported-operating-system)
   - [Usage](#usage)
-    - [Usage alias](#usage-alias)  
+  - [Aliases set up by plugin](#aliases-set-up-by-plugin)
   - [Updating exa](#updating-exa)
   - [License](#license)
+
+<!--TOC-->
+
+## Supported Operating system
+
+List of Operating System currently supported by the plugin:
+
+- :penguin: Linux
+  - x86_64
+- :apple: Darwin
+  - x86_64
 
 ## Usage
 
@@ -66,7 +85,7 @@ git clone https://github.com/ptavares/zsh-exa ~/.zsh-exa
 source ~/.zsh-exa/zsh-exa.plugin.zsh
 ```
 
-### Usage alias
+## Aliases set up by plugin
 
 Here is the list of aliases available through this plugin:
 
