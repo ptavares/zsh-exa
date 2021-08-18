@@ -37,16 +37,28 @@ _zsh_exa_log() {
 }
 
 _zsh_exa_last_version() {
-  echo $(curl -s https://api.github.com/repos/ogham/exa/releases | grep tag_name | head -n 1 | cut -d '"' -f 4)
+  echo $(curl -s https://api.github.com/repos/ogham/exa/releases/latest | grep tag_name | cut -d '"' -f 4)
 }
 
 _zsh_exa_download_install() {
-    local version=$1
-    _zsh_exa_log $NONE "blue" "  -> download and install exa ${version}"
-    wget -qc --no-check-certificate https://github.com/ogham/exa/releases/download/${version}/exa-${OSTYPE%-*}-x86_64-${version#v*}.zip -O ${EXA_HOME}/exa.zip
-    unzip ${EXA_HOME}/exa.zip -d ${EXA_HOME} 2>&1 > /dev/null
-    rm -rf ${EXA_HOME}/exa.zip
-    mv ${EXA_HOME}/exa-* ${EXA_HOME}/exa
+   local version=$1
+   local machine
+     case "$(uname -m)" in
+       x86_64)
+         machine=x86_64
+         # if on Darwin, set $OSTYPE to match the exa release
+         [[ "$OSTYPE" == "darwin"* ]] && local OSTYPE=macos
+         ;;
+       *)
+         _zsh_exa_log $BOLD "red" "Machine $(uname -m) not supported by this plugin"
+         return 1
+     ;;
+     esac
+   _zsh_exa_log $NONE "blue" "  -> download and install exa ${version}"
+   curl -o "${EXA_HOME}/exa.zip" -fsSL https://github.com/ogham/exa/releases/download/${version}/exa-${OSTYPE%-*}-${machine}-${version#v*}.zip
+   unzip ${EXA_HOME}/exa.zip -d ${EXA_HOME} 2>&1 > /dev/null
+   rm -rf ${EXA_HOME}/exa.zip
+   mv ${EXA_HOME}/exa-* ${EXA_HOME}/exa
    echo ${version} > ${ZSH_EXA_VERSION_FILE}
 }
 
@@ -65,7 +77,7 @@ _zsh_exa_install() {
 update_zsh_exa() {
   _zsh_exa_log $NONE "blue" "#############################################"
   _zsh_exa_log $BOLD "blue" "Checking new version of kubectx..."
-  
+
   local current_version=$(cat ${ZSH_EXA_VERSION_FILE})
   local last_version=$(_zsh_exa_last_version)
 
