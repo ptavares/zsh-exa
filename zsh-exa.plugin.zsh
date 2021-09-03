@@ -55,11 +55,11 @@ _zsh_exa_download_install() {
      ;;
      esac
    _zsh_exa_log $NONE "blue" "  -> download and install exa ${version}"
-   curl -o "${EXA_HOME}/exa.zip" -fsSL https://github.com/ogham/exa/releases/download/${version}/exa-${OSTYPE%-*}-${machine}-${version#v*}.zip
-   unzip ${EXA_HOME}/exa.zip -d ${EXA_HOME} 2>&1 > /dev/null
+   curl -o "${EXA_HOME}/exa.zip" -fsSL https://github.com/ogham/exa/releases/download/${version}/exa-${OSTYPE%-*}-${machine}-${version}.zip || (_zsh_exa_log $BOLD "red" "Error while downloading exa release" ; return)
+   unzip -o ${EXA_HOME}/exa.zip -d ${EXA_HOME} 2>&1 > /dev/null
    rm -rf ${EXA_HOME}/exa.zip
-   mv ${EXA_HOME}/exa-* ${EXA_HOME}/exa
    echo ${version} > ${ZSH_EXA_VERSION_FILE}
+  _zsh_exa_log $BOLD "green" "Install OK"
 }
 
 _zsh_exa_install() {
@@ -70,13 +70,12 @@ _zsh_exa_install() {
   local last_version=$(_zsh_exa_last_version)
   _zsh_exa_log $NONE "blue" "-> retrieve last version of exa..."
   _zsh_exa_download_install ${last_version}
-  _zsh_exa_log $BOLD "green" "Install OK"
   _zsh_exa_log $NONE "blue" "#############################################"
 }
 
 update_zsh_exa() {
   _zsh_exa_log $NONE "blue" "#############################################"
-  _zsh_exa_log $BOLD "blue" "Checking new version of kubectx..."
+  _zsh_exa_log $BOLD "blue" "Checking new version of exa..."
 
   local current_version=$(cat ${ZSH_EXA_VERSION_FILE})
   local last_version=$(_zsh_exa_last_version)
@@ -94,7 +93,7 @@ update_zsh_exa() {
 
 _zsh_exa_load() {
     # export PATH
-    export PATH=${PATH}:${EXA_HOME}
+    export PATH=${PATH}:${EXA_HOME}/bin
 }
 
 # install exa if it isnt already installed
