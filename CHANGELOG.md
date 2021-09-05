@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.2.0"></a>
+## 0.2.0 (2021-09-03)
+
+### Fixed
+
+- 🐛 resolve download URL + new path [[5fed859](https://github.com/ptavares/zsh-exa/commit/5fed85936e728f69fdccd39dd975c10cb07dfd43)]
+
+
 <a name="0.1.0"></a>
 ## 0.1.0 (2021-08-18)
 
