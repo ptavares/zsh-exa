@@ -15,7 +15,7 @@ NONE="NONE"
 # PLUGIN MAIN
 #########################
 
-[[ -z "$EXA_HOME" ]] && export EXA_HOME="$HOME/.exa/"
+[[ -z "$EXA_HOME" ]] && export EXA_HOME="$HOME/.exa"
 
 ZSH_EXA_VERSION_FILE=${EXA_HOME}/version.txt
 
