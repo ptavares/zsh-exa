@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="0.2.1"></a>
+## 0.2.1 (2022-04-06)
+
+### Miscellaneous
+
+-  Merge pull request [#2](https://github.com/ptavares/zsh-exa/issues/2) from vv3d0x/fix-double-slash [[73bd75c](https://github.com/ptavares/zsh-exa/commit/73bd75c45cd3b5c2eafa180486a5a6388589280d)]
+-  Prevent double slash in paths [[8c97924](https://github.com/ptavares/zsh-exa/commit/8c97924809d4b940b0a5ba94d446a4955fe817d7)]
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2021-09-03)
 
