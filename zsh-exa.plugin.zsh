@@ -92,8 +92,12 @@ update_zsh_exa() {
 }
 
 _zsh_exa_load() {
-    # export PATH
-    export PATH=${PATH}:${EXA_HOME}/bin
+    local -r exadir=$EXA_HOME/bin
+
+    # Add the exa bin directory path if it doesn't exist in $PATH.
+    if [[ -z ${path[(r)$exadir]} ]]; then
+        path+=($exadir)
+    fi
 }
 
 # install exa if it isnt already installed
