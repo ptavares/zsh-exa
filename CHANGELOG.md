@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="0.2.2"></a>
+## 0.2.2 (2022-07-17)
+
+### Fixed
+
+- 🐛 Fix a duplicate path addition [[46ddca3](https://github.com/ptavares/zsh-exa/commit/46ddca33fb886be8c6fc2c549864bd3ced065df1)]
+
+### Miscellaneous
+
+-  Merge pull request [#4](https://github.com/ptavares/zsh-exa/issues/4) from a5ob7r/fix_duplicate_path_addition [[6888b6d](https://github.com/ptavares/zsh-exa/commit/6888b6dfeb3c7fd9ff539b559821d8ed246f69f4)]
+
+
 <a name="0.2.1"></a>
 ## 0.2.1 (2022-04-06)
 
