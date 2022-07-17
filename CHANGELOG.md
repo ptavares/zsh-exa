@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.2.3"></a>
+## 0.2.3 (2022-07-17)
+
+### Fixed
+
+- 🐛 fix duplicate path addition [[b2d32dc](https://github.com/ptavares/zsh-exa/commit/b2d32dcf056b80ac10f9fae2b44fe24af438ca49)]
+
+
 <a name="0.2.2"></a>
 ## 0.2.2 (2022-07-17)
 
