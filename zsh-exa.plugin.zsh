@@ -42,22 +42,8 @@ _zsh_exa_last_version() {
 
 _zsh_exa_download_install() {
    local version=$1
-   local machine
-     case "$(uname -m)" in
-       x86_64)
-         machine=x86_64
-         # if on Darwin, set $OSTYPE to match the exa release
-         [[ "$OSTYPE" == "darwin"* ]] && local OSTYPE=macos
-         ;;
-       *)
-         _zsh_exa_log $BOLD "red" "Machine $(uname -m) not supported by this plugin"
-         return 1
-     ;;
-     esac
-   _zsh_exa_log $NONE "blue" "  -> download and install exa ${version}"
-   curl -o "${EXA_HOME}/exa.zip" -fsSL https://github.com/ogham/exa/releases/download/${version}/exa-${OSTYPE%-*}-${machine}-${version}.zip || (_zsh_exa_log $BOLD "red" "Error while downloading exa release" ; return)
-   unzip -o ${EXA_HOME}/exa.zip -d ${EXA_HOME} 2>&1 > /dev/null
-   rm -rf ${EXA_HOME}/exa.zip
+   _zsh_exa_log $NONE "blue" "  -> use cargo to install exa ${version}"
+   cargo install exa
    echo ${version} > ${ZSH_EXA_VERSION_FILE}
   _zsh_exa_log $BOLD "green" "Install OK"
 }
